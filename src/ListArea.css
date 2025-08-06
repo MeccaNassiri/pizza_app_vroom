@@ -1,0 +1,22 @@
+.parent {
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    max-width: 90vw;
+    max-height: 40vh;
+}
+
+.leftEdge {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 90vw;
+    margin-left: 5vw;
+}
+
+.no-overflow {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

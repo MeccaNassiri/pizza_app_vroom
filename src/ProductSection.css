@@ -1,0 +1,56 @@
+.productsList {
+    height: 250px;
+    max-height: 250px;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.product-image {
+    height: 110px;
+    max-height: 110px;
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.image-container {
+
+}
+
+.semibold-font {
+    font-weight: 600;
+}
+
+.bold-font {
+    font-weight: 700
+}
+
+.black-font {
+    color: black;
+}
+
+.padding-div {
+    margin: auto;
+    max-width: 80vw;
+}
+
+p {
+    margin-top: 5px;
+}
+
+.no-bottom-margin {
+    margin-bottom: 5px;
+}
+
+.hover-special {
+    transition: all 0.4s;
+}
+
+.hover-special:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}

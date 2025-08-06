@@ -1,0 +1,13 @@
+.reduce-top-space {
+    margin-top: -50px;
+}
+
+.current-category {
+    margin-top: -2px;
+    margin-bottom: -2px;
+    color: black;
+}
+
+.select-class {
+    margin-bottom: 15px;
+}
