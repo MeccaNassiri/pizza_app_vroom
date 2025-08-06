@@ -1,7 +1,7 @@
-import { useState, useEffect} from 'react'
-import './App.css'
-import Heading from './Heading.tsx'
-import ListArea from './ListArea.tsx'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Heading from './Heading.tsx';
+import ListArea from './ListArea.tsx';
 
 export interface IApiData {
     products: IProduct[]
@@ -26,13 +26,22 @@ function App() {
     const [categoryShowing, setCategoryShowing] = useState<ICategory>({id: 0, title: "null"});
 
     useEffect(() => {
-        fetch("./products.json")
+        fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.vroomdelivery.com/api/v1/products/getProductsWithSecondaryCategories?primary_category=2807&company_id=2449')}`)
             .then((res) => {
-                const ting: IApiData = res.json().then((oney) => {
-                    setData(oney)
-                    setCategoryShowing((oney as IApiData).categories[0]);
+                res.json().then((jsonDatey) => {
+                    const ting: IApiData = JSON.parse(jsonDatey.contents) as IApiData;
+                    setData(ting);
+                    setCategoryShowing(ting.categories[0]);
                 });
-            })
+            }).catch((error) => {
+                console.error(error);
+                fetch("./products.json").then((innerRes) => {
+                    const ting: IApiData = innerRes.json().then((oney) => {
+                        setData(oney);
+                        setCategoryShowing((oney as IApiData).categories[0]);
+                    });
+                });
+            });
     }, []);
 
     return (
