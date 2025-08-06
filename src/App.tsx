@@ -26,7 +26,7 @@ function App() {
     const [categoryShowing, setCategoryShowing] = useState<ICategory>({id: 0, title: "null"});
 
     useEffect(() => {
-        fetch("./public/products.json")
+        fetch("./products.json")
             .then((res) => {
                 const ting: IApiData = res.json().then((oney) => {
                     setData(oney)
