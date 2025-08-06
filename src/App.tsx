@@ -28,6 +28,7 @@ function App() {
     useEffect(() => {
         fetch("./public/products.json")
             .then((res) => {
+                console.log(res);
                 const ting: IApiData = res.json().then((oney) => {
                     setData(oney)
                     setCategoryShowing((oney as IApiData).categories[0]);
