@@ -2,7 +2,7 @@ import './ListArea.css';
 import ProductSection from './ProductSection.tsx';
 import { useState } from 'react';
 
-import { IProduct, ICategory } from './App';
+import { type IProduct, type ICategory } from './App';
 
 interface IListAreaProps {
     categories: ICategory[]

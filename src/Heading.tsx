@@ -1,5 +1,5 @@
 import ReactCurvedText from 'react-curved-text';
-import { ICategory } from './App';
+import { type ICategory } from './App';
 import './Heading.css';
 
 interface IHeaderProps {
