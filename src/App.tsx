@@ -24,6 +24,7 @@ export interface ICategory {
 function App() {
     const [data, setData] = useState<IApiData>({ products: [], categories: [] });
     const [categoryShowing, setCategoryShowing] = useState<ICategory>({id: 0, title: "null"});
+    const [dataLoaded, setDataLoaded] = useState(false);
 
     useEffect(() => {
         fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.vroomdelivery.com/api/v1/products/getProductsWithSecondaryCategories?primary_category=2807&company_id=2449')}`)
@@ -31,6 +32,7 @@ function App() {
                 res.json().then((jsonDatey) => {
                     const ting: IApiData = JSON.parse(jsonDatey.contents) as IApiData;
                     setData(ting);
+                    setDataLoaded(true);
                     setCategoryShowing(ting.categories[0]);
                 });
             }).catch((error) => {
@@ -38,6 +40,7 @@ function App() {
                 fetch("./products.json").then((innerRes) => {
                     const ting: IApiData = innerRes.json().then((oney) => {
                         setData(oney);
+                        setDataLoaded(true);
                         setCategoryShowing((oney as IApiData).categories[0]);
                     });
                 });
@@ -47,9 +50,9 @@ function App() {
     return (
         <div>
             <div>
-                <Heading categories={data.categories} currentCategory={categoryShowing} setCategoryState={setCategoryShowing} />
+                <Heading categories={data.categories} currentCategory={categoryShowing} setCategoryState={setCategoryShowing} dataLoaded={dataLoaded} />
             </div>
-            <ListArea categories={data.categories} products={data.products} currentCategory={categoryShowing} />
+            <ListArea categories={data.categories} products={data.products} currentCategory={categoryShowing} dataLoaded={dataLoaded} />
         </div>
     )
 }

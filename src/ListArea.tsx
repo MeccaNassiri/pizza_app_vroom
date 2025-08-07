@@ -7,7 +7,8 @@ import { type IProduct, type ICategory } from './App';
 interface IListAreaProps {
     categories: ICategory[]
     products: IProduct[]
-    currentCategory: ICategory
+    currentCategory: ICategory,
+    dataLoaded: boolean
 }
 
 export enum SortTypes {
@@ -19,7 +20,7 @@ export default function ListArea(props: IListAreaProps) {
     const [sortType, setSortType] = useState(SortTypes.Name);
 
     return (
-        <div className="parent">
+        <div className={"parent" + ((!props.dataLoaded) ? " hidden" : "")}>
             <select className="leftEdge" name="sortTypeSelect" value={sortType} onChange={(e) => {
                 setSortType(parseInt(e.target.value));
             }}>

@@ -64,7 +64,7 @@ export default function ProductSection(props: IProductSectionProps) {
                     ))}
                 </Slider>
             </div>
-            <h5 style={{ color: "black" }}>{
+            <h5>{
                 (props.category.title === "Pizza Slices" && "Are these slices of Peet-zuh or Pizzaw?")
                 || (props.category.title === "Large Pizza" && "I usually call these big-boned pizzas")
                 || (props.category.title === "Sheet Pizza" && "Same Sheet, Different Day")

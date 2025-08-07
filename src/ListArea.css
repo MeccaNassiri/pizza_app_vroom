@@ -21,3 +21,7 @@
     overflow-y: hidden;
     width: 100%;
 }
+
+.hidden {
+    visibility: hidden;
+}
